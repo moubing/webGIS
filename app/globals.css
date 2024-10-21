@@ -2,26 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+    .custom.ol-overviewmap {
+        left: 0.5em;
+        bottom: 3em;
+    }
+
+    .custom.ol-overviewmap .ol-overviewmap-map {
+        height: 150px;
+        width: 250px;
+    }
+
+    .custom.ol-zoomslider {
+        top: 8em;
+    }
+
+    .custom.ol-zoomslider button {
+        left: 0em;
+    }
+
+    .custom.ol-rotate {
+        top: 36px
+    }
+
+    .custom.ol-mouse-position {
+        bottom: 8px;
+        left: 0px;
+        right: 0px;
+        top: unset;
+        text-align: center;
+        font-size: small;
+        font-weight: light;
+        color: #555;
+    }
+
+    .my-title {
+        text-shadow: 1px -1px #fff, -1px 1px #eee, -5px 5px 3px #858585;
+    }
+
+    ::-webkit-inner-spin-button,
+    ::-webkit-outer-spin-button {
+        appearance: none;
+    }
+
+    ::-webkit-scrollbar {
+        width: 5px;
+        height: 3px;
+    }
+
+    ::-webkit-scrollbar-track {
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: skyblue;
+    }
+
 }
