@@ -16,26 +16,6 @@ import { supportFormat } from "@/app/globalVarible";
 import { GeoTIFFTag, VectorTag } from "../lib/tags";
 import { createDefaultStyle } from "../lib/utils";
 
-// 不是通用的，以后看看能不能改成通用的
-
-//! 状态描述
-// layerList: 一个数组，里面的元素是一个layer
-// setLayerList: 这个数组相应的set函数
-
-// layer: {
-//     layerName: string,
-//     tags: string[],
-//     source: Source,
-// }
-
-//! layer的结构以后会多增加一个字段id
-
-// tags[0] : 图层类型标签 --> tile|image|vector|vectorImage|vectorTiel|webGLTile
-// tags[1] : 数据源标签 --> geoJson|XYZ|...
-// tags[2...] : 自定义标签
-
-//todo 这里的tags数组可能改成set比较好
-
 //! 这里我将layers设置为state，因为后面的reorder需要这个状态
 //! 所以一定要注意更改了layers的状态后，记得同步更新map中的layer
 

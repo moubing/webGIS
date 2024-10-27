@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --cursor-style: default
+}
+
+body {
+    cursor: var(--cursor-style);
+}
+
 @layer utilities {
     .custom.ol-overviewmap {
         left: 0.5em;

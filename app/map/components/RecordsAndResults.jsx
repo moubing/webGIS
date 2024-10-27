@@ -8,7 +8,6 @@ import { TbArrowBigRightLines } from "react-icons/tb";
 
 export const Records = memo(function Records() {
   const records = useContext(RecordsContext);
-  console.log("records:", records);
   return records.length !== 0 ? (
     records.map((item) => <ListItem key={item.hotPointID} item={item} />)
   ) : (
@@ -18,7 +17,6 @@ export const Records = memo(function Records() {
 
 export const Results = memo(function Results() {
   const results = useContext(ResultsContext);
-  console.log("results:", results);
 
   return results.length !== 0 ? (
     results.map((item) => <ListItem key={item.hotPointID} item={item} />)

@@ -16,8 +16,6 @@ import {
 import clsx from "clsx";
 
 export function TempBtns() {
-  console.log("btns render");
-
   const layerManagerContainerState = useContext(LMConCtx);
   const setLayerManagerContainerState = useContext(SetLMConCtx);
   const mapContainerState = useContext(MapConCtx);
