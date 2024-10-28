@@ -12,8 +12,8 @@ import { CgCloseR } from "react-icons/cg";
 import { IconContainer } from "./IconContainer";
 import { ModifyCom } from "./ModifyCom";
 import { DrawCom } from "./DrawCom";
-import { ClickSelectCom, ClickSelection } from "./ClickSelectCom";
-import { BoxSelectCom, BoxSelection } from "./BoxSelectCom";
+import { ClickSelectCom } from "./ClickSelectCom";
+import { BoxSelectCom } from "./BoxSelectCom";
 import { TranslateCom } from "./TranslateCom";
 import { GeoJSON } from "ol/format";
 
@@ -49,7 +49,7 @@ export function EditBar() {
 
   return (
     editLayer && (
-      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 rounded-lg shadow-md p-3 flex items-center gap-2 bg-white/30 backdrop-blur-xl">
+      <div className="fixed top-14 left-1/2 -translate-x-1/2 rounded-lg shadow-md p-3 flex items-center gap-2 bg-white/30 backdrop-blur-xl">
         <h1 className="p-2 bg-white/60 shadow-md rounded-md">
           {editLayer.get("layerName")}
         </h1>

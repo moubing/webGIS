@@ -24,7 +24,7 @@ export function MiddlePanelGroup({ children, defaultSize }) {
       id={"MiddlePanelGroup"}
       order={2}
       defaultSize={defaultSize}
-      className=" bg-sky-200"
+      className=" relative z-30"
     >
       <PanelGroup
         autoSaveId="MiddlePanelGroup"

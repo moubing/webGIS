@@ -7,3 +7,14 @@ export function toLocation(string) {
   const lat = +position[1];
   return fromLonLat([lon, lat]);
 }
+
+export function getAccumulateRandomData(startData, account, range) {
+  let data = [startData];
+
+  for (let i = 1; i < account; i++) {
+    data.push(
+      Math.round(Math.random() * (range[1] - range[0]) + range[0] + data[i - 1])
+    );
+  }
+  return data;
+}

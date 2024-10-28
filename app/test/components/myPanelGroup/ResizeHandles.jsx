@@ -8,7 +8,7 @@ export function HorizontalHandle({ isDisabled = false }) {
     <PanelResizeHandle
       disabled={isDisabled}
       className={clsx({
-        "relative w-1 h-full bg-pink-500 z-50 after:content-[''] after:absolute  after:-left-1 after:w-2 after:h-full after:hover:bg-sky-200 after:active:bg-sky-500 ":
+        "relative w-2 h-full bg-transparent z-50 hover:bg-sky-200 active:bg-sky-500  ":
           !isDisabled,
         hidden: isDisabled,
       })}
@@ -20,7 +20,7 @@ export function VerticalHandle({ isDisabled = false }) {
     <PanelResizeHandle
       disabled={isDisabled}
       className={clsx({
-        "relative h-1 w-full bg-pink-500 z-50 after:content-[''] after:absolute after:-top-1  after:h-2 after:w-full after:hover:bg-sky-200 after:active:bg-sky-500":
+        "relative h-2 w-full bg-transparent z-50 hover:bg-sky-200 active:bg-sky-500 ":
           !isDisabled,
         hidden: isDisabled,
       })}

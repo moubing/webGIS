@@ -21,7 +21,7 @@ export function AddLayerMenu() {
     };
   }, []);
   return (
-    <div className="absolute top-2 right-2">
+    <div className="flex items-center justify-center w-full p-1 bg-white shadow-lg rounded-md">
       <AddLayerBtn
         handleOpen={() => {
           setIsOpen(true);

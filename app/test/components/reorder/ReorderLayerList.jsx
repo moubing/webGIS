@@ -63,7 +63,7 @@ export function ReorderLayerList() {
       axis="y"
       values={layerList}
       onReorder={setLayerList}
-      className="space-y-2 p-4 w-80"
+      className="space-y-2 p-2 w-full flex-grow border-t-2 border-gray-400"
     >
       {layerList.map((layer, index, arr) => (
         <Reorder.Item

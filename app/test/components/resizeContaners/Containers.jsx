@@ -16,8 +16,8 @@ export function TopBarContainer({ children, defaultSize }) {
         id={"TopBarContainer"}
         order={1}
         minSize={5}
-        maxSize={8}
-        className="bg-pink-200"
+        maxSize={9}
+        className=" border-b-2 border-sky-400 shadow-sm"
       >
         {children}
       </Panel>
@@ -34,7 +34,7 @@ export function MapContainer({ children, defaultSize }) {
       id={"MapContainer"}
       order={1}
       defaultSize={defaultSize}
-      className="bg-green-200"
+      className=" border-2 border-sky-400 rounded-lg shadow-sm"
     >
       {children}
     </Panel>
@@ -54,7 +54,7 @@ export function LogContainer({ children, defaultSize }) {
           minSize={10}
           id={"LogContainer"}
           order={2}
-          className="bg-violet-200"
+          className=" border-2 border-sky-400 rounded-lg shadow-sm"
         >
           {children}
         </Panel>
@@ -72,7 +72,7 @@ export function LayerManagerContainer({ children, defaultSize }) {
         id={"LayerManagerContainer"}
         order={1}
         defaultSize={defaultSize}
-        className="bg-teal-200"
+        className=" border-r-2 border-y-2 border-sky-400 rounded-r-lg shadow-sm relative z-50"
       >
         {children}
       </Panel>
@@ -94,7 +94,7 @@ export function TipContainer({ children, defaultSize }) {
           order={3}
           minSize={3}
           maxSize={4}
-          className="bg-yellow-200"
+          className="bg-blue-400 text-white text-sm"
         >
           {children}
         </Panel>
@@ -115,7 +115,7 @@ export function ToolContainer({ children, defaultSize }) {
           id={"ToolContainer"}
           order={3}
           defaultSize={defaultSize}
-          className="bg-indigo-200"
+          className=" border-l-2 border-y-2 border-sky-400 rounded-l-lg shadow-sm"
         >
           {children}
         </Panel>
