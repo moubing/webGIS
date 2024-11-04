@@ -4,7 +4,6 @@ import { useContext } from "react";
 import { MapContext } from "../../ctx/MapContext";
 import {
   EditLayerContext,
-  LayerListContext,
   SetEditLayerContext,
   SetLayerListContext,
 } from "../../ctx/LayerContext";
@@ -13,20 +12,19 @@ import { MdOutlineDeleteSweep } from "react-icons/md";
 
 export function RemoveLayerBtn() {
   const map = useContext(MapContext);
-  const layerList = useContext(LayerListContext);
   const setLayerList = useContext(SetLayerListContext);
   const editLayer = useContext(EditLayerContext);
   const setEditLayer = useContext(SetEditLayerContext);
   const layer = useContext(LayerContext);
 
   function handleDeleteLayer() {
-    const newLayerList = layerList.filter(
-      (item) => item.get("layerName") !== layer.get("layerName")
-    );
     if (editLayer && layer.get("layerName") === editLayer.get("layerName")) {
       setEditLayer(null);
     }
-    setLayerList(newLayerList);
+
+    setLayerList((pre) =>
+      pre.filter((item) => item.get("layerName") !== layer.get("layerName"))
+    );
     map.removeLayer(layer);
   }
 

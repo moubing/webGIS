@@ -5,7 +5,7 @@ import { TbStatusChange } from "react-icons/tb";
 
 export function TempTip() {
   return (
-    <div className="h-full w-full flex items-center justify-between">
+    <div className="h-full w-full flex items-center justify-between bg-blue-400 text-white text-sm">
       <section className="flex items-center gap-2 h-full">
         <div className="py-1 px-2 bg-green-500 h-full flex items-center">
           <TbStatusChange className="size-5 " />

@@ -16,12 +16,11 @@ import { CheckboxMB } from "@/app/components/CheckBoxMB";
 import { MapContext } from "../../ctx/MapContext";
 import { CancleBtn, ConfirmBtn } from "@/app/components/Buttons";
 import { GeoJSONTag, VectorTag } from "../../variables/tags";
-import { LayerListContext, SetLayerListContext } from "../../ctx/LayerContext";
+import { SetLayerListContext } from "../../ctx/LayerContext";
 
 export function GeoJSONOption({ handleClose }) {
   let defalutLayerName = getDefaultLayerName();
   const map = useContext(MapContext);
-  const layerList = useContext(LayerListContext);
   const setLayerList = useContext(SetLayerListContext);
 
   const [vectorLayerOption, setVectorLayerOption] = useState({
@@ -76,7 +75,7 @@ export function GeoJSONOption({ handleClose }) {
     newLayer.setSource(newSource);
     newLayer.set("tags", [VectorTag, GeoJSONTag]);
     map.addLayer(newLayer);
-    setLayerList([newLayer, ...layerList]);
+    setLayerList((pre) => [newLayer, ...pre]);
     updateDefaultlayerName();
     handleClose();
   }

@@ -15,7 +15,7 @@ import { MapContext } from "../../ctx/MapContext";
 import { XYZ } from "ol/source";
 import WebGLTileLayer from "ol/layer/WebGLTile";
 import { TileTag, XYZTag } from "../../variables/tags";
-import { LayerListContext, SetLayerListContext } from "../../ctx/LayerContext";
+import { SetLayerListContext } from "../../ctx/LayerContext";
 
 //todo 这些加载图层的option都要好好看看，有很多重复的地方
 //todo 想办法把它们压缩一下
@@ -24,7 +24,6 @@ import { LayerListContext, SetLayerListContext } from "../../ctx/LayerContext";
 export function XYZOption({ handleClose }) {
   let defalutLayerName = getDefaultLayerName();
   const map = useContext(MapContext);
-  const layerList = useContext(LayerListContext);
   const setLayerList = useContext(SetLayerListContext);
 
   const [tileLayerOption, setTileLayerOption] = useState({
@@ -72,7 +71,7 @@ export function XYZOption({ handleClose }) {
     newLayer.setSource(newSource);
     newLayer.set("tags", [TileTag, XYZTag]);
     map.addLayer(newLayer);
-    setLayerList([newLayer, ...layerList]);
+    setLayerList((pre) => [newLayer, ...pre]);
     updateDefaultlayerName();
     handleClose();
   }

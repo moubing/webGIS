@@ -4,12 +4,11 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { MdOutlineDriveFolderUpload } from "react-icons/md";
 import { shpToGeoJson } from "../../lib/loadFile";
 import clsx from "clsx";
-import { LayerListContext, SetLayerListContext } from "../../ctx/LayerContext";
+import { SetLayerListContext } from "../../ctx/LayerContext";
 import { MapContext } from "../../ctx/MapContext";
 
 export function LoadFile({ handleClose }) {
   const map = useContext(MapContext);
-  const layerList = useContext(LayerListContext);
   const setLayerList = useContext(SetLayerListContext);
   const inputRef = useRef(null);
   const divRef = useRef(null);
@@ -24,7 +23,7 @@ export function LoadFile({ handleClose }) {
       const vLayers = await shpToGeoJson(file, name);
       map.addLayer(vLayers);
       map.getView().fit(vLayers.getSource().getExtent());
-      setLayerList([vLayers, ...layerList]);
+      setLayerList((pre) => [vLayers, ...pre]);
       handleClose();
     }
 
@@ -51,7 +50,7 @@ export function LoadFile({ handleClose }) {
       const vLayers = await shpToGeoJson(file, name);
       map.addLayer(vLayers);
       map.getView().fit(vLayers.getSource().getExtent());
-      setLayerList([vLayers, ...layerList]);
+      setLayerList((pre) => [vLayers, ...pre]);
       handleClose();
     }
     divElement.addEventListener("dragenter", dragEnter);
@@ -67,7 +66,7 @@ export function LoadFile({ handleClose }) {
       divElement.removeEventListener("dragleave", dragLeave);
       divElement.removeEventListener("drop", drop);
     };
-  }, [handleClose, map, layerList, setLayerList]);
+  }, [handleClose, map, setLayerList]);
   return (
     <div
       ref={divRef}

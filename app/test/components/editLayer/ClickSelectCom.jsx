@@ -9,6 +9,7 @@ import {
   SetSelectedFeaturesContext,
 } from "../../ctx/LayerContext";
 import { Select } from "ol/interaction";
+import { featuresToStingData } from "../../lib/transfrom";
 
 export const ClickSelectCom = memo(function ClickSelection({
   isSelected,
@@ -25,8 +26,9 @@ export const ClickSelectCom = memo(function ClickSelection({
 
   useEffect(() => {
     function clickSelect(e) {
-      const selectedArr = e.target.getFeatures().getArray();
-      setSelectedFeatures([...selectedArr]);
+      const features = e.target.getFeatures().getArray();
+      const data = featuresToStingData(features);
+      setSelectedFeatures(data);
     }
     interaction.on("select", clickSelect);
 

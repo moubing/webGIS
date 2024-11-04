@@ -7,8 +7,6 @@ import { TempFallback } from "./TempFallback";
 export function TempFeatureTable() {
   const selectedFeatures = useContext(SelectedFeaturesContext);
   if (selectedFeatures) {
-    console.log(selectedFeatures);
-    console.log(selectedFeatures[0].getProperties().geometry);
     return (
       <div className=" overflow-auto h-full">
         <TableFields feature={selectedFeatures[0].getProperties()} />

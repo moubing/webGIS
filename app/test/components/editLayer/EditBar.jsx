@@ -49,7 +49,7 @@ export function EditBar() {
 
   return (
     editLayer && (
-      <div className="fixed top-14 left-1/2 -translate-x-1/2 rounded-lg shadow-md p-3 flex items-center gap-2 bg-white/30 backdrop-blur-xl">
+      <div className="fixed z-50 top-14 left-1/2 -translate-x-1/2 rounded-lg shadow-md p-3 flex items-center gap-2 bg-white/30 backdrop-blur-xl">
         <h1 className="p-2 bg-white/60 shadow-md rounded-md">
           {editLayer.get("layerName")}
         </h1>

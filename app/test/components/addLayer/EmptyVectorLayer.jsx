@@ -9,17 +9,19 @@ import {
   PointTag,
   PolygonTag,
   VectorTag,
+  MultiPolygonTag,
 } from "../../variables/tags";
 import {
   getDefaultLayerName,
   updateDefaultlayerName,
 } from "../../defaultOptions/defaultLayerName";
-import { LayerListContext, SetLayerListContext } from "../../ctx/LayerContext";
+import { SetLayerListContext } from "../../ctx/LayerContext";
 import { createDefaultStyle } from "../../lib/createStyle";
+import { geojsonMapping } from "../../variables/geojsonMapping";
+import { GeoJSON } from "ol/format";
 
 export function EmptyVectorLayer({ handleClose }) {
   const map = useContext(MapContext);
-  const layerList = useContext(LayerListContext);
   const setLayerList = useContext(SetLayerListContext);
   function addEmptyLayer(type) {
     const newLayer = new VectorLayer({
@@ -32,12 +34,34 @@ export function EmptyVectorLayer({ handleClose }) {
       }),
     });
     map.addLayer(newLayer);
-    setLayerList([newLayer, ...layerList]);
+    setLayerList((pre) => [newLayer, ...pre]);
+    updateDefaultlayerName();
+    handleClose();
+  }
+  function addGeoJSON(dataUrl) {
+    const newLayer = new VectorLayer({
+      layerName: getDefaultLayerName(),
+      tags: [VectorTag, MultiPolygonTag],
+      geometryType: MultiPolygonTag,
+      style: createDefaultStyle(),
+      source: new Vector({
+        url: dataUrl,
+        format: new GeoJSON(),
+      }),
+    });
+    newLayer.getSource().once("change", () => {
+      if (newLayer.getSource().getState() === "ready") {
+        map.getView().fit(newLayer.getSource().getExtent());
+      }
+    });
+
+    map.addLayer(newLayer);
+    setLayerList((pre) => [newLayer, ...pre]);
     updateDefaultlayerName();
     handleClose();
   }
   return (
-    <div className="grid grid-cols-5 gap-3 p-2">
+    <div className="grid grid-cols-5 gap-3 p-2 ">
       <Btn
         title={"point"}
         handleClick={() => {
@@ -56,6 +80,15 @@ export function EmptyVectorLayer({ handleClose }) {
           addEmptyLayer(PolygonTag);
         }}
       />
+      {geojsonMapping.map((item) => (
+        <Btn
+          key={item[0]}
+          title={item[0]}
+          handleClick={() => {
+            addGeoJSON(item[1]);
+          }}
+        />
+      ))}
     </div>
   );
 }

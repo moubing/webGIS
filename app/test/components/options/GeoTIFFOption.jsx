@@ -14,13 +14,12 @@ import { CheckboxMB } from "@/app/components/CheckBoxMB";
 import { MapContext } from "../../ctx/MapContext";
 import WebGLTileLayer from "ol/layer/WebGLTile.js";
 import { GeoTIFF } from "ol/source";
-import { LayerListContext, SetLayerListContext } from "../../ctx/LayerContext";
+import { SetLayerListContext } from "../../ctx/LayerContext";
 import { GeoTIFFTag, WebGLTileTag } from "../../variables/tags";
 
 export function GeoTIFFOption({ handleClose }) {
   let defalutLayerName = getDefaultLayerName();
   const map = useContext(MapContext);
-  const layerList = useContext(LayerListContext);
   const setLayerList = useContext(SetLayerListContext);
 
   const [tileLayerOption, setTileLayerOption] = useState({
@@ -70,7 +69,7 @@ export function GeoTIFFOption({ handleClose }) {
     newLayer.setSource(newSource);
     newLayer.set("tags", [WebGLTileTag, GeoTIFFTag]);
     map.addLayer(newLayer);
-    setLayerList([newLayer, ...layerList]);
+    setLayerList((pre) => [newLayer, ...pre]);
     updateDefaultlayerName();
     handleClose();
   }

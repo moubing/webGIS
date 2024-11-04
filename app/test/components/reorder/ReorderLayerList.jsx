@@ -48,7 +48,7 @@ export function ReorderLayerList() {
       });
       map.addLayer(vLayer);
       map.getView().fit(vSource.getExtent());
-      setLayerList([vLayer, ...layerList]);
+      setLayerList((pre) => [vLayer, ...pre]);
     }
     dragAndDrop.on("addfeatures", addFeatures);
     map.addInteraction(dragAndDrop);
@@ -57,7 +57,7 @@ export function ReorderLayerList() {
       dragAndDrop.un("addfeatures", addFeatures);
       map.removeInteraction(dragAndDrop);
     };
-  }, [layerList, setLayerList, map, dragAndDrop]);
+  }, [setLayerList, map, dragAndDrop]);
   return (
     <Reorder.Group
       axis="y"

@@ -23,7 +23,7 @@ const fillColor = [
   pink200,
   violet200,
 ];
-const strokeColor = [
+export const strokeColor = [
   blue,
   gray500,
   green500,

@@ -24,3 +24,15 @@ export function createDefaultStyle() {
     }),
   });
 }
+
+// 以后这应该是一个函数，根据不同的geometry的类型来返回对应的选中style
+export const selectedStyle = new Style({
+  fill: new Fill({
+    color: "#e5e7ebaa",
+  }),
+  stroke: new Stroke({
+    color: "#eab308",
+    width: 2,
+  }),
+  zIndex: 9999,
+});

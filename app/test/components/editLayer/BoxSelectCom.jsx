@@ -14,6 +14,7 @@ import {
   EditLayerContext,
   SetSelectedFeaturesContext,
 } from "../../ctx/LayerContext";
+import { featuresToStingData } from "../../lib/transfrom";
 
 export const BoxSelectCom = memo(function BoxSelection({ isSelected, setId }) {
   const map = useContext(MapContext);
@@ -88,8 +89,9 @@ export const BoxSelectCom = memo(function BoxSelection({ isSelected, setId }) {
           selectedFeatures.extend(boxFeatures);
         }
       }
-      const selectedArr = selectedFeatures.getArray();
-      setSelectedFeatures([...selectedArr]);
+      const features = selectedFeatures.getArray();
+      const data = featuresToStingData(features);
+      setSelectedFeatures(data);
     }
     function clearSelection() {
       selectedFeatures.clear();

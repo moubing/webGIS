@@ -2,7 +2,6 @@ import { EditBar } from "../editLayer/EditBar";
 import { ReorderLayerList } from "../reorder/ReorderLayerList";
 import { TempSliderbar } from "../temp/TempSlidrbar";
 import { TempTopbar } from "../temp/TempTopbar";
-import { FeaturesPanel } from "../tool/FeaturePanel";
 
 export function LayerManager() {
   return (

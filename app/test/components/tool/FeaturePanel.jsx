@@ -4,6 +4,8 @@ import { useContext } from "react";
 import { SelectedFeaturesContext } from "../../ctx/LayerContext";
 import { motion, AnimatePresence, useDragControls } from "framer-motion";
 
+// 可以删了
+
 // 这里有待改进的地方
 // 1. dragConstraints是自己硬编码的 --> 使用一个ref来改进
 // 2. 表的样式

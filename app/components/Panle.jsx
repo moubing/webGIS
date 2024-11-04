@@ -11,7 +11,7 @@ export function Panle({
   height = "h-max",
   width = "w-max",
 }) {
-  const myClassName = `p-4 rounded-lg shadow-lg mt-16 bg-white ${height} ${width}`;
+  const myClassName = `p-4 rounded-lg overflow-auto shadow-lg mt-16 bg-white ${height} ${width}`;
   return (
     <Dialog open={isOpen} onClose={handleClose}>
       <DialogBackdrop

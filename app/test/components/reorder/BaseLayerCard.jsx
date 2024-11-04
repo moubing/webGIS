@@ -6,6 +6,7 @@ import { LayerContext, StyleContext } from "../../ctx/LayerCardContext";
 import { LayerSettingMenu } from "./LayerSettingMenu";
 import { RemoveLayerBtn } from "./RemoveLayerBtn";
 import { VectorTag } from "../../variables/tags";
+import { LayerSettingDropdown } from "./LayerSettingDropdown";
 
 export function BaseLayerCard({ children, layer, zIndex }) {
   layer.setZIndex(zIndex);
@@ -30,7 +31,8 @@ export function BaseLayerCard({ children, layer, zIndex }) {
           </section>
           <section className="absolute top-1 right-1 flex gap-2">
             {children}
-            <LayerSettingMenu />
+            {/* <LayerSettingMenu /> */}
+            <LayerSettingDropdown />
             <RemoveLayerBtn />
           </section>
         </div>
