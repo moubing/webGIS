@@ -48,6 +48,8 @@ export function LoadFile({ handleClose }) {
       const file = e.dataTransfer.files[0];
       const [name, extendName] = file.name.split(".");
       const vLayers = await shpToGeoJson(file, name);
+      vLayers.setZIndex(map.getAllLayers().length + 1);
+
       map.addLayer(vLayers);
       map.getView().fit(vLayers.getSource().getExtent());
       setLayerList((pre) => [vLayers, ...pre]);

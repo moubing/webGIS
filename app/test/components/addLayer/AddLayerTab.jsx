@@ -1,6 +1,6 @@
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import { useState } from "react";
-import { SourceList } from "./SupportSoourceList";
+import { SourceList } from "./SupportSourceList";
 import { optionMap } from "../../lib/optionMap";
 import { LoadFile } from "./LoadFile";
 import { EmptyVectorLayer } from "./EmptyVectorLayer";
@@ -37,7 +37,8 @@ export function AddLayerTab({ handleClose }) {
           />
         </TabPanel>
         <TabPanel>
-          <EmptyVectorLayer handleClose={handleClose} />
+          {/* <EmptyVectorLayer handleClose={handleClose} /> */}
+          <div>none</div>
         </TabPanel>
         <TabPanel>
           {selectedSourceName && <OptionComponent handleClose={handleClose} />}

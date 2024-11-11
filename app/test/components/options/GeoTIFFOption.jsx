@@ -69,6 +69,8 @@ export function GeoTIFFOption({ handleClose }) {
     newLayer.setSource(newSource);
     newLayer.set("tags", [WebGLTileTag, GeoTIFFTag]);
     map.addLayer(newLayer);
+    newLayer.setZIndex(map.getAllLayers().length + 1);
+
     setLayerList((pre) => [newLayer, ...pre]);
     updateDefaultlayerName();
     handleClose();

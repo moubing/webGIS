@@ -75,6 +75,8 @@ export function GeoJSONOption({ handleClose }) {
     newLayer.setSource(newSource);
     newLayer.set("tags", [VectorTag, GeoJSONTag]);
     map.addLayer(newLayer);
+    newLayer.setZIndex(map.getAllLayers().length + 1);
+
     setLayerList((pre) => [newLayer, ...pre]);
     updateDefaultlayerName();
     handleClose();

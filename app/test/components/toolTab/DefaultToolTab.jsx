@@ -84,7 +84,6 @@ export function DefaultToolPanel() {
     };
   }, [isArea, map, measureVectorLayer, areaDraw]);
   const features = measureVectorLayer.getSource().getFeatures();
-  console.log(features);
   return (
     <TabPanel className="relative overflow-auto flex-grow text-sm text-slate-500 shadow-lg focus:outline-none p-2 bg-gray-200 ">
       <div className="flex items-center gap-2">
@@ -117,6 +116,7 @@ export function DefaultToolPanel() {
         <button
           onClick={() => {
             measureVectorLayer.getSource().clear();
+            rerender({});
           }}
           className="px-2 bg-white py-1 rounded-md shadow-md "
         >

@@ -13,6 +13,7 @@ export const TopoJSONTag = "topoJson";
 export const KMLTag = "kml";
 export const JSONTag = "json";
 export const GeoTIFFTag = "geoTiff";
+export const MVTTag = "mvt";
 
 // 矢量要素类型tag
 export const PointTag = "Point";

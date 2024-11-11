@@ -25,9 +25,7 @@ export function EditBar() {
   const setEditLayer = useContext(SetEditLayerContext);
   const setSelectedFeatures = useContext(SetSelectedFeaturesContext);
   const [selectedId, setSelectedId] = useState(0);
-  const [format, setFormat] = useState(
-    new GeoJSON({ featureProjection: "EPSG:3857" })
-  );
+  const [format] = useState(new GeoJSON({ featureProjection: "EPSG:3857" }));
   const donwloadRef = useRef(null);
 
   useEffect(() => {

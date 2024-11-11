@@ -13,9 +13,9 @@ import { CancleBtn, ConfirmBtn } from "@/app/components/Buttons";
 import { CheckboxMB } from "@/app/components/CheckBoxMB";
 import { MapContext } from "../../ctx/MapContext";
 import { XYZ } from "ol/source";
-import WebGLTileLayer from "ol/layer/WebGLTile";
 import { TileTag, XYZTag } from "../../variables/tags";
 import { SetLayerListContext } from "../../ctx/LayerContext";
+import TileLayer from "ol/layer/Tile";
 
 //todo 这些加载图层的option都要好好看看，有很多重复的地方
 //todo 想办法把它们压缩一下
@@ -66,11 +66,12 @@ export function XYZOption({ handleClose }) {
     }
     if (isError) return;
 
-    const newLayer = new WebGLTileLayer(tileLayerOption);
+    const newLayer = new TileLayer(tileLayerOption);
     const newSource = new XYZ(xyzSourceOption);
     newLayer.setSource(newSource);
     newLayer.set("tags", [TileTag, XYZTag]);
     map.addLayer(newLayer);
+    newLayer.setZIndex(map.getAllLayers().length + 1);
     setLayerList((pre) => [newLayer, ...pre]);
     updateDefaultlayerName();
     handleClose();

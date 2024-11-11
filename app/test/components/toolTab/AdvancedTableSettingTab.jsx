@@ -25,7 +25,7 @@ export function AdvancedTableSettingPanel({ payload }) {
   }, []);
 
   return (
-    <TabPanel className="relative overflow-auto flex-grow shadow-lg focus:outline-none text-sm text-sky-500 font-bold bg-gray-200">
+    <TabPanel className="relative overflow-auto flex-grow focus:outline-none text-sm text-sky-500 font-bold bg-gray-200">
       <div className="text-gray-800 p-2">字段的显示和顺序</div>
       <div className="flex px-4 items-center justify-between">
         <ToggleAllColumnsVisible

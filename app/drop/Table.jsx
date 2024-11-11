@@ -76,8 +76,20 @@ const columns = [
   }),
 ];
 
+// const columns = [
+//   columnHelper.accessor("name", {
+//     cell: (props) => <>{props.getValue()}</>,
+//   }),
+//   columnHelper.accessor("filename", {
+//     cell: (props) => <>{props.getValue()}</>,
+//   }),
+//   columnHelper.accessor("level", {
+//     cell: (props) => <>{props.getValue()}</>,
+//   }),
+// ];
+
 export function Table() {
-  const [data, setData] = useState(DATA);
+  const [data] = useState(DATA);
   const [columnVisibility, setColumnVisibility] = useState({});
   const [columnOrder, setColumnOrder] = useState([]);
   const [columnPinning, setColumnPinning] = useState({});
