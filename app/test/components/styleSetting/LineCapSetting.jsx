@@ -1,24 +1,21 @@
 "use client";
 
-import { useCallback, useContext, useState } from "react";
+import { useCallback, useState } from "react";
 import { NormalBlock } from "./Blocks";
 import { StyleSettingContainer2 } from "./StyleSettingContainer";
 import { Item } from "./TextItem";
-import { LayerContext, StyleContext } from "../../ctx/LayerCardContext";
 import { butt, round, square } from "../../variables/style";
 
-export function LineCapSetting() {
-  const layer = useContext(LayerContext);
-  const style = useContext(StyleContext);
+export function LineCapSetting({ style, updateStyle }) {
   const [cap, setCap] = useState(style.getStroke().getLineCap());
   const updateStrokeWidth = useCallback(
     function updateStrokeLineCap(property) {
       style.getStroke().setLineCap(property);
 
       setCap(property);
-      layer.setStyle(style);
+      updateStyle(style);
     },
-    [layer, style]
+    [updateStyle, style]
   );
   return (
     <StyleSettingContainer2 title={"描边线帽"}>

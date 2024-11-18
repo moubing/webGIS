@@ -15,7 +15,7 @@ import { MapContext } from "../../ctx/MapContext";
 import WebGLTileLayer from "ol/layer/WebGLTile.js";
 import { GeoTIFF } from "ol/source";
 import { SetLayerListContext } from "../../ctx/LayerContext";
-import { GeoTIFFTag, WebGLTileTag } from "../../variables/tags";
+import { GeoTIFFTag, UserLayerTag, WebGLTileTag } from "../../variables/tags";
 
 export function GeoTIFFOption({ handleClose }) {
   let defalutLayerName = getDefaultLayerName();
@@ -68,6 +68,8 @@ export function GeoTIFFOption({ handleClose }) {
     const newSource = new GeoTIFF(geotiffSourceOption);
     newLayer.setSource(newSource);
     newLayer.set("tags", [WebGLTileTag, GeoTIFFTag]);
+    newLayer.set("layerType", UserLayerTag);
+
     map.addLayer(newLayer);
     newLayer.setZIndex(map.getAllLayers().length + 1);
 

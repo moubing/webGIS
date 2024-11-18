@@ -2,12 +2,30 @@
 import { TbSettingsCode } from "react-icons/tb";
 
 import { StyledIconMenu } from "../dropdownMenus/StyledMenu";
-import { OpenAttributeTableBtn } from "../dropdownMenuBtns/LayerSettingMenuBtns";
+import {
+  EditBtn,
+  GenerateChartsBtn,
+  OpenAttributeTableBtn,
+  StyleSettingBtn,
+  ZoomToExtentBtn,
+} from "../dropdownMenuBtns/LayerSettingMenuBtns";
+import { useContext } from "react";
+import { LayerContext } from "../../ctx/LayerCardContext";
+import { VectorTag } from "../../variables/tags";
 
 export function LayerSettingDropdown() {
+  const layer = useContext(LayerContext);
   return (
     <StyledIconMenu Icon={TbSettingsCode}>
-      <OpenAttributeTableBtn />
+      {layer.get("tags")[0] === VectorTag && (
+        <>
+          <OpenAttributeTableBtn />
+          <EditBtn />
+          <StyleSettingBtn />
+          <GenerateChartsBtn />
+        </>
+      )}
+      <ZoomToExtentBtn />
     </StyledIconMenu>
   );
 }

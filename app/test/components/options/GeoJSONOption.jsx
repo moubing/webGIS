@@ -15,7 +15,7 @@ import { InputMB } from "@/app/components/InputMB";
 import { CheckboxMB } from "@/app/components/CheckBoxMB";
 import { MapContext } from "../../ctx/MapContext";
 import { CancleBtn, ConfirmBtn } from "@/app/components/Buttons";
-import { GeoJSONTag, VectorTag } from "../../variables/tags";
+import { GeoJSONTag, UserLayerTag, VectorTag } from "../../variables/tags";
 import { SetLayerListContext } from "../../ctx/LayerContext";
 
 export function GeoJSONOption({ handleClose }) {
@@ -74,6 +74,7 @@ export function GeoJSONOption({ handleClose }) {
     });
     newLayer.setSource(newSource);
     newLayer.set("tags", [VectorTag, GeoJSONTag]);
+    newLayer.set("layerType", UserLayerTag);
     map.addLayer(newLayer);
     newLayer.setZIndex(map.getAllLayers().length + 1);
 

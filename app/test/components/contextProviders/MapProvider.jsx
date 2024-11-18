@@ -41,6 +41,9 @@ import {
   TileTag,
   XYZTag,
   MultiPolygonTag,
+  ServerLayerTag,
+  BaseMapLayerTag,
+  UserLayerTag,
 } from "../../variables/tags";
 import { createDefaultStyle } from "../../lib/createStyle";
 import { customCoordinateFormat } from "../../lib/coordinateFormat";
@@ -241,6 +244,7 @@ export function MapProvider({ children }) {
           tags: [VectorTag, GeoJSONTag],
           style: createDefaultStyle(),
           geometryType: MultiPolygonTag,
+          layerType: ServerLayerTag,
           source: new Vector({
             format: new GeoJSON(),
             url: "/data/jiangshu.geoJson",
@@ -249,6 +253,7 @@ export function MapProvider({ children }) {
         new TileLayer({
           layerName: "vector lable",
           tags: [TileTag, XYZTag],
+          layerType: BaseMapLayerTag,
           source: new XYZ({
             url: "http://t{0-7}.tianditu.gov.cn/cva_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=cva&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&tk=1609bb3d2a692f00a899ab2392dc38be",
           }),
@@ -256,18 +261,11 @@ export function MapProvider({ children }) {
         new TileLayer({
           layerName: "vector",
           tags: [TileTag, XYZTag],
+          layerType: BaseMapLayerTag,
           source: new XYZ({
             url: "http://t{0-7}.tianditu.gov.cn/vec_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=vec&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&tk=1609bb3d2a692f00a899ab2392dc38be",
           }),
         }),
-
-        // new TileLayer({
-        //   layerName: "esri3",
-        //   tags: [TileTag, XYZTag],
-        //   source: new XYZ({
-        //     url: "https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}",
-        //   }),
-        // }),
       ],
       view: new View({
         center: [0, 0],

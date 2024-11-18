@@ -58,3 +58,22 @@ export const xsmall = 5;
 export const small = 10;
 export const big = 15;
 export const xbig = 20;
+
+export const colorMaps = [
+  "jet",
+  "hsv",
+  "hot",
+  "cool",
+  "spring",
+  "summer",
+  "autumn",
+  "winter",
+  "bone",
+  "copper",
+  "greys",
+  "greens",
+  "YIOrRd",
+  "plasma",
+  "warm",
+  "phase",
+];

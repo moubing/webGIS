@@ -13,7 +13,7 @@ import { CancleBtn, ConfirmBtn } from "@/app/components/Buttons";
 import { CheckboxMB } from "@/app/components/CheckBoxMB";
 import { MapContext } from "../../ctx/MapContext";
 import { XYZ } from "ol/source";
-import { TileTag, XYZTag } from "../../variables/tags";
+import { TileTag, UserLayerTag, XYZTag } from "../../variables/tags";
 import { SetLayerListContext } from "../../ctx/LayerContext";
 import TileLayer from "ol/layer/Tile";
 
@@ -70,6 +70,8 @@ export function XYZOption({ handleClose }) {
     const newSource = new XYZ(xyzSourceOption);
     newLayer.setSource(newSource);
     newLayer.set("tags", [TileTag, XYZTag]);
+    newLayer.set("layerType", UserLayerTag);
+
     map.addLayer(newLayer);
     newLayer.setZIndex(map.getAllLayers().length + 1);
     setLayerList((pre) => [newLayer, ...pre]);

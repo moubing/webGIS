@@ -1,24 +1,21 @@
 "use client";
 
-import { useCallback, useContext, useState } from "react";
+import { useCallback, useState } from "react";
 import { NormalBlock } from "./Blocks";
 import { StyleSettingContainer2 } from "./StyleSettingContainer";
 import { Item } from "./TextItem";
-import { LayerContext, StyleContext } from "../../ctx/LayerCardContext";
 import { bevel, round, miter } from "../../variables/style";
 
-export function LineJoinSetting() {
-  const layer = useContext(LayerContext);
-  const style = useContext(StyleContext);
+export function LineJoinSetting({ style, updateStyle }) {
   const [join, setJoin] = useState(style.getStroke().getLineJoin());
   const updateStrokeWidth = useCallback(
     function updateStrokeLineJoin(property) {
       style.getStroke().setLineJoin(property);
 
       setJoin(property);
-      layer.setStyle(style);
+      updateStyle(style);
     },
-    [layer, style]
+    [updateStyle, style]
   );
   return (
     <StyleSettingContainer2 title={"描边连接"}>

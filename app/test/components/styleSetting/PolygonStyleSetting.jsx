@@ -6,15 +6,15 @@ import { LineCapSetting } from "./LineCapSetting";
 import { LineJoinSetting } from "./LineJoinSetting";
 import { LineDashSetting } from "./LineDashSetting";
 
-export function PolygonStyleSetting() {
+export function PolygonStyleSetting({ style, updateStyle }) {
   return (
-    <div>
-      <FillColorSetting />
-      <StrokeColorSetting />
-      <WidthSetting />
-      <LineCapSetting />
-      <LineJoinSetting />
-      <LineDashSetting />
+    <div className="bg-white">
+      <FillColorSetting style={style} updateStyle={updateStyle} />
+      <StrokeColorSetting style={style} updateStyle={updateStyle} />
+      <WidthSetting style={style} updateStyle={updateStyle} />
+      <LineCapSetting style={style} updateStyle={updateStyle} />
+      <LineJoinSetting style={style} updateStyle={updateStyle} />
+      <LineDashSetting style={style} updateStyle={updateStyle} />
     </div>
   );
 }

@@ -21,17 +21,17 @@ export function ReorderLayerList() {
     >
       {layerList.map((layer, index, arr) => (
         <Reorder.Item
-          initial={{ scale: 1, boxShadow: "0px 0px 0px 0px #ec4899" }}
-          whileDrag={{ scale: 1.05, boxShadow: "0px 0px 5px 2px #ec4899" }}
+          // initial={{ scale: 1 }}
+          // whileDrag={{ scale: 1.05 }}
           key={layer.get("layerName")}
           value={layer}
           className="relative hover:z-50 z-0"
         >
           <BaseLayerCard layer={layer} zIndex={arr.length - index}>
-            {layer.get("tags")[0] === VectorTag && <EditBtn layer={layer} />}
+            {/* {layer.get("tags")[0] === VectorTag && <EditBtn layer={layer} />}
             {layer.get("tags")[1] === GeoTIFFTag && (
               <ZoomToLayerBtn layer={layer} />
-            )}
+            )} */}
           </BaseLayerCard>
         </Reorder.Item>
       ))}

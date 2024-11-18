@@ -4,7 +4,7 @@ export const VectorTag = "Vector";
 export const WebGLTileTag = "WebGLTile";
 
 // 数据源tag
-export const XYZTag = "XYZ";
+export const XYZTag = "xyz";
 export const GeoJSONTag = "geoJson";
 export const KMZTag = "kmz";
 export const GPXTag = "gpx";
@@ -25,3 +25,9 @@ export const MultiPolygonTag = "MultiPolygon";
 export const GeometryCollectionTag = "GeometryCollection";
 export const LinearRingTag = "LinearRing";
 export const CircleTag = "Circle";
+
+// 自定义图层类型
+
+export const UserLayerTag = "UserLayer";
+export const ServerLayerTag = "ServerLayer";
+export const BaseMapLayerTag = "BaseMapLayer";

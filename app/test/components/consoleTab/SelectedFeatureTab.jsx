@@ -78,7 +78,7 @@ const SelectedFeaturePanel = memo(function SelectedFeaturePanel({ data }) {
 
   return (
     <TabPanel className="relative overflow-auto flex-grow rounded-lg shadow-lg focus:outline-none">
-      <TablePagination table={table} />
+      <TablePagination table={table} isShowAdvance={false} />
       <div style={{ width: table.getTotalSize() }}>
         {table.getHeaderGroups().map((headerGroup) => (
           <TableHeaderRow key={headerGroup.id}>

@@ -24,6 +24,7 @@ export function TabListProvider({ children }) {
   const [toolTabList, setToolTabList] = useState([
     { Tab: DefaultToolTab, Panel: DefaultToolPanel, payload: null },
   ]);
+
   return (
     <TabListContext.Provider value={tabList}>
       <SetTabListContext.Provider value={setTabList}>

@@ -2,6 +2,7 @@ import Fill from "ol/style/Fill";
 import Stroke from "ol/style/Stroke";
 import Style from "ol/style/Style";
 import Icon from "ol/style/Icon";
+import colormap from "colormap";
 
 export function createDefaultStyle() {
   return new Style({
@@ -36,3 +37,14 @@ export const selectedStyle = new Style({
   }),
   zIndex: 9999,
 });
+
+export function getColor(steps, min, max, value, colorSet) {
+  const cmap = colormap({
+    colormap: colorSet,
+    nshades: steps,
+    alpha: [0.5, 1],
+  });
+
+  const index = Math.floor((value - min) / ((max - min) / steps));
+  return cmap[index];
+}

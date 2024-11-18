@@ -1,12 +1,11 @@
 "use client";
 
-import { useCallback, useContext, useState } from "react";
+import { useCallback, useState } from "react";
 import { ColorBlock, ColorInputBlock } from "./Blocks";
 import {
   OpacityInputContainer,
   StyleSettingContainer,
 } from "./StyleSettingContainer";
-import { LayerContext, StyleContext } from "../../ctx/LayerCardContext";
 
 import {
   gray200,
@@ -27,9 +26,7 @@ import {
   isStrokeColor,
 } from "../../variables/style";
 
-export function FillColorSetting() {
-  const layer = useContext(LayerContext);
-  const style = useContext(StyleContext);
+export function FillColorSetting({ style, updateStyle }) {
   const [color, setColor] = useState(style.getFill().getColor().slice(0, 7));
   const [opacity, setOpacity] = useState(
     parseInt(style.getFill().getColor().slice(7, 9), 16)
@@ -40,9 +37,9 @@ export function FillColorSetting() {
       const finalColor = selectedColor + opacity.toString(16).padStart(2, "0");
       style.getFill().setColor(finalColor);
       setColor(selectedColor);
-      layer.setStyle(style);
+      updateStyle(style);
     },
-    [opacity, layer, style]
+    [opacity, style, updateStyle]
   );
   return (
     <StyleSettingContainer title={"填充颜色"}>
@@ -122,16 +119,14 @@ export function FillColorSetting() {
             const finalColor =
               color + opacityNumber.toString(16).padStart(2, "0");
             style.getFill().setColor(finalColor);
-            layer.setStyle(style);
+            updateStyle(style);
           }}
         />
       </OpacityInputContainer>
     </StyleSettingContainer>
   );
 }
-export function StrokeColorSetting() {
-  const layer = useContext(LayerContext);
-  const style = useContext(StyleContext);
+export function StrokeColorSetting({ style, updateStyle }) {
   const [color, setColor] = useState(style.getStroke().getColor().slice(0, 7));
   const [opacity, setOpacity] = useState(
     parseInt(style.getStroke().getColor().slice(7, 9), 16)
@@ -144,9 +139,9 @@ export function StrokeColorSetting() {
       style.getStroke().setColor(finalColor);
 
       setColor(selectedColor);
-      layer.setStyle(style);
+      updateStyle(style);
     },
-    [opacity, layer, style]
+    [opacity, updateStyle, style]
   );
   return (
     <StyleSettingContainer title={"描边颜色"}>
@@ -228,7 +223,7 @@ export function StrokeColorSetting() {
 
             style.getStroke().setColor(finalColor);
 
-            layer.setStyle(style);
+            updateStyle(style);
           }}
         />
       </OpacityInputContainer>

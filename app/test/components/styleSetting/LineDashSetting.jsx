@@ -1,25 +1,22 @@
 "use client";
 
-import { useCallback, useContext, useState } from "react";
+import { useCallback, useState } from "react";
 import { StyleSettingContainer2 } from "./StyleSettingContainer";
 import { PiRectangleDashedBold } from "react-icons/pi";
 import { PiRectangleBold } from "react-icons/pi";
 import { dashArr } from "../../variables/style";
 import { NormalBlock } from "./Blocks";
-import { LayerContext, StyleContext } from "../../ctx/LayerCardContext";
 
-export function LineDashSetting() {
-  const layer = useContext(LayerContext);
-  const style = useContext(StyleContext);
+export function LineDashSetting({ style, updateStyle }) {
   const [dash, setDash] = useState(style.getStroke().getLineDash());
   const updateStrokeDash = useCallback(
     function updateStrokeColor(property) {
       style.getStroke().setLineDash(property);
 
       setDash(property);
-      layer.setStyle(style);
+      updateStyle(style);
     },
-    [layer, style]
+    [updateStyle, style]
   );
   return (
     <StyleSettingContainer2 title={"描边样式"}>

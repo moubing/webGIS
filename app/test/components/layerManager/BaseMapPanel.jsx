@@ -10,7 +10,7 @@ import { MapContext } from "../../ctx/MapContext";
 import { SetLayerListContext } from "../../ctx/LayerContext";
 import TileLayer from "ol/layer/Tile";
 import { XYZ } from "ol/source";
-import { TileTag, XYZTag } from "../../variables/tags";
+import { BaseMapLayerTag, TileTag, XYZTag } from "../../variables/tags";
 import { getCount, increaseCount } from "../../lib/baseMap";
 
 export function BaseMapPanel() {
@@ -54,6 +54,7 @@ export function BaseMapPanel() {
                     const newBaseMapLayer = new TileLayer({
                       layerName: baseMap.name,
                       tags: [TileTag, XYZTag],
+                      layerType: BaseMapLayerTag,
                       source: new XYZ({
                         attributions: baseMap.attribution,
                         url: baseMap.url,
@@ -89,6 +90,8 @@ export function BaseMapPanel() {
                     const newBaseMapLayer = new TileLayer({
                       layerName: baseMap.name,
                       tags: [TileTag, XYZTag],
+                      layerType: BaseMapLayerTag,
+
                       source: new XYZ({
                         attributions: baseMap.attribution,
                         url: baseMap.url,

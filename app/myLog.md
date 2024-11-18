@@ -25,3 +25,35 @@
 3. 完善矢量图层样式管理
 4. 调整 UI，使界面更加 responsive
 5. 使用`docusaurus`写一下帮助文档
+
+## Base
+
+- 矢量图层应该包含的自定义属性
+  - layerName
+  - tags
+  - style
+  - geometryType
+  - layerType
+- 瓦片图层应该包含的自定义属性
+  - layerName
+  - tags
+  - layerTpye
+
+## Log: 2024-11-17
+
+- BaseLayerCard 并不需要 children
+- 以后将缩放至图层和矢量编辑功能统一放在 LayerSettingDropdown 里面
+- 相关的判断也在 LayerSettingDropDown 里面进行
+- 根据 tags 进行判断
+
+## useless file
+
+addLayer
+
+- EmptyVectorLayer
+- LoadFile
+
+reorder
+
+- EditBtn
+- ZoomToLayerBtn

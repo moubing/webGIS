@@ -6,14 +6,14 @@ import { LineCapSetting } from "./LineCapSetting";
 import { LineJoinSetting } from "./LineJoinSetting";
 import { LineDashSetting } from "./LineDashSetting";
 
-export function LineStyleSetting() {
+export function LineStyleSetting({ style, updateStyle }) {
   return (
-    <div>
-      <StrokeColorSetting />
-      <WidthSetting />
-      <LineCapSetting />
-      <LineJoinSetting />
-      <LineDashSetting />
+    <div className=" bg-white">
+      <StrokeColorSetting style={style} updateStyle={updateStyle} />
+      <WidthSetting style={style} updateStyle={updateStyle} />
+      <LineCapSetting style={style} updateStyle={updateStyle} />
+      <LineJoinSetting style={style} updateStyle={updateStyle} />
+      <LineDashSetting style={style} updateStyle={updateStyle} />
     </div>
   );
 }

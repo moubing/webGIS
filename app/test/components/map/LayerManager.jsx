@@ -21,7 +21,7 @@ import { supportFormat } from "../../variables/supportFormat";
 import { Vector } from "ol/source";
 import VectorLayer from "ol/layer/Vector";
 import { createDefaultStyle } from "../../lib/createStyle";
-import { VectorTag } from "../../variables/tags";
+import { UserLayerTag, VectorTag } from "../../variables/tags";
 import { EditBar } from "../editLayer/EditBar";
 import { ShortCutPanel } from "../layerManager/ShortCutPanel";
 import { BaseMapPanel } from "../layerManager/BaseMapPanel";
@@ -54,6 +54,8 @@ export function LayerManager() {
         layerName: name,
         style: createDefaultStyle(),
         geometryType: vSource.getFeatures()[0].getGeometry().getType(),
+        layerType: UserLayerTag,
+
         tags: [VectorTag, extendName],
       });
       vLayer.setZIndex(map.getAllLayers().length + 1);

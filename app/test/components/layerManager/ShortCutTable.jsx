@@ -24,7 +24,7 @@ import VectorLayer from "ol/layer/Vector";
 import { Vector } from "ol/source";
 import { MapContext } from "../../ctx/MapContext";
 import { GeoJSON } from "ol/format";
-import { GeoJSONTag, VectorTag } from "../../variables/tags";
+import { GeoJSONTag, ServerLayerTag, VectorTag } from "../../variables/tags";
 import { createDefaultStyle } from "../../lib/createStyle";
 import { geoJsonDataBaseUrl } from "../../variables/dataBaseUrl";
 
@@ -67,6 +67,8 @@ export function ShortCutTable({ data }) {
                 layerName: row.original.name,
                 tags: [VectorTag, GeoJSONTag],
                 style: createDefaultStyle(),
+                layerType: ServerLayerTag,
+
                 source: newSource,
               });
               newSource.once("change", () => {
